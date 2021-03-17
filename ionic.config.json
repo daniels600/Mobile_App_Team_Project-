@@ -1,5 +1,7 @@
 {
   "name": " MAP_Team_Project",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
