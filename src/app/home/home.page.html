@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="container">
+    <ion-slides pager="true">
+      <ion-slide>
+        <img src="assets/images/online_groceries.svg" class="description_img"/>
+        <h4 class="description_header">Order Your Favorite Food</h4>
+        <p class="short_msg">Order anything you want from your favorite restaurants and make your day more delicious</p>
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/booking.svg" class="description_img"/>
+        <h4 class="description_header">Book Reservation easily</h4>
+        <p class="short_msg">Book your reservation at your favorite restaurants from the comfort of your home, work place, hotel, etc.</p>
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/location.svg" class="description_img"/>
+        <h4 class="description_header">Locate Nearby Restaurants </h4>
+        <p class="short_msg">Locate nearby restaurants from your current location instantly.</p>
+      </ion-slide>
+    </ion-slides>
+    <ion-button class="get_started-btn" routerLink = '../login' expand="block">Get Started</ion-button>
+    
   </div>
+  
+  
 </ion-content>
