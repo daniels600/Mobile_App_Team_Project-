@@ -15,6 +15,14 @@ export class AccountPage implements OnInit {
   email:any;
   name:any;
 
+  option = {
+    slidesPerView: 1.5,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 10,
+    // autoplay:true,
+  }
+
   constructor(
     private router:Router,
     private toastCtrl : ToastController,

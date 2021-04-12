@@ -88,7 +88,7 @@ ion-item {
     }
   
     ion-card-title {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: bolder;
     }
   }
@@ -101,3 +101,23 @@ ion-item {
     padding: 10px;
     font-size: 14px;
   }
+
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    width: 120px;
+    height: 100px;
+    margin-top: 0%;
+    float: left;
+}
+
+ion-searchbar {
+  --border-radius: 15px;
+  --icon-color: #ED4B27;
+}
+
+ion-toolbar {
+  --padding-bottom: 0%;
+}

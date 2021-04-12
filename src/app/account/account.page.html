@@ -1,14 +1,97 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>account</ion-title>
+  <!-- <ion-toolbar color="primary">
+    <div class="bar bar-subheader">
+      <img src="assets/icon/Eately-01.png" alt="logo" class="logo">
+    </div>
   </ion-toolbar>
+  <ion-toolbar>
+    <div class="bar bar-subheader">
+      <ion-searchbar placeholder="Search for Restaurant & Cuisine"></ion-searchbar>
+    </div>
+  </ion-toolbar> -->
+  <ion-list-header lines="full">
+    <ion-label><ion-icon name="logo-instagram" size="large"></ion-icon></ion-label>
+    <img src="assets/icon/Eately-01.png" alt="logo" class="logo">
+    <ion-label>Eately GH</ion-label>
+    <ion-button><ion-icon name="location"></ion-icon></ion-button>
+  </ion-list-header>
+  <ion-toolbar>
+    <div class="bar bar-subheader">
+      <ion-searchbar placeholder="Search for Restaurant & Cuisine"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+  <!-- <p class="no-restaurant"> Restaurants are </p>
   <ion-button color="green" (click)="logout()">
     <label> Logout</label>
     <ion-icon name="exit">Logout</ion-icon>
-  </ion-button>
+  </ion-button> -->
+
+
+  <div class="ion-padding wrapper" id="popular">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-baseline">
+        <ion-col size="6">
+          <h4 class="title">
+            Popular Dishes
+          </h4>
+        </ion-col>
+        <ion-col size="6">
+          <h4 class="more ion-text-end">
+            View more
+          </h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </div>
+    
+    <!-- <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12"> -->
+
+        <p class="no-restaurant">Restaurant are </p>
+
+        <ion-slides [options]="option">
+            <ion-slide>
+              <ion-card>
+                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+              </ion-card>
+            </ion-slide>
+  
+            <ion-slide>
+              <ion-card>
+                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+              </ion-card>
+            </ion-slide>
+  
+            <ion-slide>
+              <ion-card>
+                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+              </ion-card>
+            </ion-slide>
+  
+            <ion-slide>
+              <ion-card>
+                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+              </ion-card>
+            </ion-slide>
+  
+            <ion-slide>
+              <ion-card>
+                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+              </ion-card>
+            </ion-slide>
+  
+          </ion-slides>
+        <!-- </ion-col>
+      </ion-row>
+    </ion-grid> -->
+  
+
+
 
 </ion-content>
 

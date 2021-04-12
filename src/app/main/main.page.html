@@ -1,21 +1,50 @@
 <ion-header class="ion-no-border">
-  <ion-item lines="none">
-    <ion-icon slot="end" name="location"></ion-icon>
+  <!-- <ion-item lines="none"> -->
+    <!-- <ion-icon slot="end" name="location"></ion-icon>
     <ion-avatar>
       <img src="assets/icon/Eately-01.png" alt="logo">
     </ion-avatar>
     <ion-label>
       <h2>Eately GH</h2>
       <p>Habib Dev.</p>
-    </ion-label>
-  </ion-item>
+    </ion-label> -->
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-icon name="logo-instagram" size="large" slot="start"></ion-icon>
+    
+      </ion-buttons>
+      <ion-buttons slot="secondary">
+        <ion-button>
+          <ion-icon slot="icon-only" name="location"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <!-- <ion-title>Eately GH</ion-title> -->
+    </ion-toolbar>
+
+
+
+    <!-- <ion-toolbar>
+      <ion-list-header lines="full">
+        <ion-label><ion-icon name="logo-instagram" size="large" slot="start"></ion-icon></ion-label>
+        <img src="assets/icon/Eately-01.png" alt="logo" class="logo"> 
+        <ion-label color="primary" class="title">Eately GH</ion-label>
+        <ion-button><ion-icon name="location"></ion-icon></ion-button>
+      </ion-list-header>
+    </ion-toolbar> -->
+   
+    <ion-toolbar>
+      <div class="bar bar-subheader">
+        <ion-searchbar placeholder="Search for Restaurant & Cuisine"></ion-searchbar>
+      </div>
+    </ion-toolbar>
+  <!-- </ion-item> -->
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
 <div class="ion-padding wrapper">
 
-  <ion-searchbar></ion-searchbar>
+  <!-- <ion-searchbar></ion-searchbar> -->
 
   <ion-grid class="ion-no-padding">
     <ion-row class="ion-align-items-baseline">
@@ -144,9 +173,6 @@
             </ion-card>
           </ion-slide>
 
-
-          
-
           <ion-slide>
             <ion-card class="card">
               <ion-card-content class="ion-text-left">
@@ -203,7 +229,6 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/dish.svg"></ion-icon>
                   <ion-card-title>Food</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
@@ -213,7 +238,6 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/cocktail.svg"></ion-icon>
                   <ion-card-title>Drink</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
@@ -223,7 +247,6 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/burger.svg"></ion-icon>
                   <ion-card-title>Burger</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
@@ -233,7 +256,6 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/pizza.svg"></ion-icon>
                   <ion-card-title>Pizza</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
@@ -243,7 +265,6 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/taco.svg"></ion-icon>
                   <ion-card-title>Mexican</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
@@ -253,7 +274,6 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/cookies.svg"></ion-icon>
                   <ion-card-title>Dessert</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
@@ -263,15 +283,11 @@
                 <ion-card-header class="ion-text-center">
                   <ion-icon src="assets/noodle.svg"></ion-icon>
                   <ion-card-title>Noodle</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
 
-            
-
-            
-  
+        
           </ion-slides>
         </ion-col>
       </ion-row>
@@ -371,7 +387,7 @@
         </ion-row>
       </ion-grid>
     
-      <div class="ion-padding">
+      <!-- <div class="ion-padding">
         <ion-row>
           <ion-col size="6">
             <ion-badge color="light" class="ion-margin-end">
@@ -384,6 +400,6 @@
             </ion-badge>
           </ion-col>
         </ion-row>
-      </div>
+      </div> -->
 
 </ion-content>
