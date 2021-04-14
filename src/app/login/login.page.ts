@@ -3,13 +3,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController, AlertController, LoadingController, NavController } from '@ionic/angular';
 import { AccessProvider } from '../providers/access-provider';
 import { Storage } from '@ionic/storage-angular';
-
+import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  server: string  = 'https://eately-gh.herokuapp.com/login_user.php';
+
   email: string = "";
   password: string = "";
   disabledbtn;
@@ -21,7 +24,8 @@ export class LoginPage implements OnInit {
     private alertCtrl : AlertController,
     private accessProvider : AccessProvider,
     public navCtrl : NavController,
-    private storage: Storage
+    private storage: Storage,
+    private http: HTTP
   ) { }
 
   ngOnInit() {
@@ -35,6 +39,15 @@ export class LoginPage implements OnInit {
   }
 
   async login_user() {
+    let url = "https://eately-gh.herokuapp.com/login_user.php";
+
+    let data = {
+      action: 'user_login',
+      email: this.email,
+      password: this.password,
+
+    }
+
     if (this.email == "") {
       this.presentToast('Your email field is empty')
     }else if (this.password == "") {
@@ -47,35 +60,66 @@ export class LoginPage implements OnInit {
       });
       loader.present();
 
-      return new Promise(resolve => {
-        let body = {
-          action: 'user_login',
-          email: this.email,
-          password: this.password,
+      
 
-        }
+      let headers = { };
+      this.http.setDataSerializer("json");
+      this.http.setHeader("*","Accept", "application/json");
+      this.http.setHeader("*","Content-Type", "application/json");
+      return this.http.post(url, data, headers)
+        .then((response: HTTPResponse) => {
+          console.log(`POST ${this.server} ${JSON.stringify(response.data)}`);
 
-        this.accessProvider.checkLogin(body, 'login_user.php').subscribe((res: any) => {
-            if (res.status == 'success') {
-              loader.dismiss();
-              this.disabledbtn = false;
-              this.presentToast(res.msg);
-              this.storage.set('storage_xxx', res.result);  //storage session
-              this.navCtrl.navigateRoot(['user-home']);
-            } else {
-              loader.dismiss();
-              this.disabledbtn = false;
-              this.presentToast(res.msg);
-            }
-          }, (err) => {
-            console.log(err);
+          let m = JSON.parse(response.data);
 
+          if (m['status'] == 'success') {
             loader.dismiss();
             this.disabledbtn = false;
-            //this.presentAlert(err);
+            this.presentToast(m['msg']);
+            this.storage.set('storage_xxx', m['result']);  //storage session
+            this.navCtrl.navigateRoot(['user-home']);
+          } else {
+            loader.dismiss();
+            this.disabledbtn = false;
+            this.presentToast(m['msg']);
           }
-        );
-      })
+        })
+        .catch((error:any) => {
+          console.error(`POST ${url} ${error.error}`);
+          loader.dismiss();
+          this.disabledbtn = false;
+        });
+
+
+      // return new Promise(resolve => {
+      //   let body = {
+      //     action: 'user_login',
+      //     email: this.email,
+      //     password: this.password,
+
+      //   }
+
+      //   this.accessProvider.checkLogin(body).subscribe((res: any) => {
+      //       if (res.status == 'success') {
+      //         loader.dismiss();
+      //         this.disabledbtn = false;
+      //         this.presentToast(res.msg);
+      //         this.storage.set('storage_xxx', res.result);  //storage session
+      //         this.navCtrl.navigateRoot(['user-home']);
+      //       } else {
+      //         loader.dismiss();
+      //         this.disabledbtn = false;
+      //         this.presentToast(res.msg);
+      //       }
+      //     }, (err) => {
+      //       console.log(err);
+
+      //       loader.dismiss();
+      //       this.disabledbtn = false;
+      //       //this.presentAlert(err);
+      //     }
+      //   );
+      // })
     }
   }
 

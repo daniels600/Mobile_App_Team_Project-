@@ -20,33 +20,76 @@
       </ion-buttons>
       <!-- <ion-title>Eately GH</ion-title> -->
     </ion-toolbar>
-
-
-
-    <!-- <ion-toolbar>
-      <ion-list-header lines="full">
-        <ion-label><ion-icon name="logo-instagram" size="large" slot="start"></ion-icon></ion-label>
-        <img src="assets/icon/Eately-01.png" alt="logo" class="logo"> 
-        <ion-label color="primary" class="title">Eately GH</ion-label>
-        <ion-button><ion-icon name="location"></ion-icon></ion-button>
-      </ion-list-header>
-    </ion-toolbar> -->
    
     <ion-toolbar>
       <div class="bar bar-subheader">
-        <ion-searchbar placeholder="Search for Restaurant & Cuisine"></ion-searchbar>
+        <ion-searchbar placeholder="Search for Restaurant & Cuisine" #search (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="always"></ion-searchbar>
       </div>
     </ion-toolbar>
   <!-- </ion-item> -->
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item >
+      <ion-tabs>
+        <ion-tab-bar slot="top">
+          <ion-tab-button tab="all">
+            <ion-icon name="home-outline"></ion-icon>
+            
+          </ion-tab-button>
+      
+          <ion-tab-button tab="pizza">
+            <ion-icon name="pizza-outline"></ion-icon>
+            
+          </ion-tab-button>
+      
+          <ion-tab-button tab="Bakery">
+            <ion-icon name="fast-food-outline"></ion-icon>
+            
+          </ion-tab-button>
+      
+          <ion-tab-button tab="Breakfast">
+            <ion-icon name="cafe-outline"></ion-icon>
+            
+          </ion-tab-button>
+          <ion-tab-button tab="rice">
+            <ion-icon name="fast-food-sharp"></ion-icon>
+            
+          </ion-tab-button>
+          
+        </ion-tab-bar>
+      
+      </ion-tabs>
+    </ion-item>
 
-<div class="ion-padding wrapper">
+    <div class="ion-padding" *ngFor="let restaurant of listRestaurants">
+      <!-- <ion-list *ngFor="let item of searchedItem">
+        <ion-item>
+          <ion-label>{{item.name}}</ion-label>
+        </ion-item>
+      </ion-list> -->
+      <ion-item [routerLink]="['/restaurant', restaurant.restaurant_id, restaurant.restaurant_name, restaurant.restaurant_address, restaurant.restaurant_telephone,restaurant.restaurant_email]" >
+        <ion-thumbnail slot="start">
+          <img [src]= "restaurant.res_image">
+        </ion-thumbnail>
+
+        <ion-card class="Rest-details">
+          <ion-card-header>
+            <ion-card-title>{{restaurant.restaurant_name}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            {{restaurant.restaurant_description}} 
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </div>
+
+<!-- <div class="ion-padding wrapper"> -->
 
   <!-- <ion-searchbar></ion-searchbar> -->
 
-  <ion-grid class="ion-no-padding">
+  <!-- <ion-grid class="ion-no-padding">
     <ion-row class="ion-align-items-baseline">
       <ion-col size="6">
         <h4 class="title">
@@ -312,94 +355,7 @@
         </ion-row>
       </ion-grid>
     
-      </div>
-    
-      <ion-grid class="ion-no-padding">
-        <ion-row>
-          <ion-col size="12">
-            <ion-slides [options]="options">
-    
-              <ion-slide>
-                <ion-card class="card">
-                  <ion-card-content class="ion-text-left">
-    
-                    <div class="img-wrapper">
-                      <ion-img src="https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
-                    </div>
-                    
-                    <ion-card-title class="title">Some Awesome Title</ion-card-title>
-                    <ion-card-subtitle>Some description here</ion-card-subtitle>
-                    <ion-card-subtitle>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </ion-card-subtitle>
-                  </ion-card-content>
-                </ion-card>
-              </ion-slide>
-    
-              <ion-slide>
-                <ion-card class="card">
-                  <ion-card-content class="ion-text-left">
-    
-                    <div class="img-wrapper">
-                      <ion-img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
-                    </div>
-                    
-                    <ion-card-title class="title">Some Awesome Title</ion-card-title>
-                    <ion-card-subtitle>Some description here</ion-card-subtitle>
-                    <ion-card-subtitle>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </ion-card-subtitle>
-                  </ion-card-content>
-                </ion-card>
-              </ion-slide>
-    
-              <ion-slide>
-                <ion-card class="card">
-                  <ion-card-content class="ion-text-left">
-    
-                    <div class="img-wrapper">
-                      <ion-img src="https://images.pexels.com/photos/1437629/pexels-photo-1437629.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
-                    </div>
-                    
-                    <ion-card-title class="title">Some Awesome Title</ion-card-title>
-                    <ion-card-subtitle>Some description here</ion-card-subtitle>
-                    <ion-card-subtitle>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-half"></ion-icon>
-                    </ion-card-subtitle>
-                  </ion-card-content>
-                </ion-card>
-              </ion-slide>
-    
-            </ion-slides>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    
-      <!-- <div class="ion-padding">
-        <ion-row>
-          <ion-col size="6">
-            <ion-badge color="light" class="ion-margin-end">
-              Habib Dev.
-            </ion-badge>
-          </ion-col>
-          <ion-col size="6" class="ion-text-end">
-            <ion-badge color="light">
-              habib.al-mawali.com
-            </ion-badge>
-          </ion-col>
-        </ion-row>
       </div> -->
-
+    
+  
 </ion-content>

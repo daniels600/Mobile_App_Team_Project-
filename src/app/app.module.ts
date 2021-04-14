@@ -11,6 +11,8 @@ import { AccessProvider } from './providers/access-provider';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 
+import { HTTP } from '@ionic-native/http/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     HttpClientModule,
     IonicStorageModule.forRoot(),
   ],
-  providers: [AccessProvider, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [AccessProvider, HTTP, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

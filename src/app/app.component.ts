@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import {NavController} from "@ionic/angular";
 import { Storage } from '@ionic/storage-angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Platform } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent {
   constructor(
     public navCtrl: NavController,
     private storage: Storage,
-    private router:Router
+    private router:Router,
   ) {
     //this.navCtrl.navigateRoot('/home');
     this.initializeApp();
@@ -29,6 +31,8 @@ export class AppComponent {
           this.navCtrl.navigateRoot('/user-home')
       }
     });
+
+    
   }
 
 

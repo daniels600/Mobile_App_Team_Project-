@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController, AlertController, LoadingController } from '@ionic/angular';
 import { AccessProvider } from '../providers/access-provider';
 import { Router } from  '@angular/router';
+import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
+
 export class RegisterPage implements OnInit {
   name: string = "";
   email: string = "";
@@ -16,12 +18,16 @@ export class RegisterPage implements OnInit {
   confirm_password: string = "";
   product:any;
   disabledbtn;
+
+  server: string  = 'https://eately-gh.herokuapp.com/signup_user.php';
+
   constructor(
     private toastCtrl : ToastController,
     private loadingCtrl : LoadingController,
     private alertCtrl : AlertController,
     private accessProvider : AccessProvider,
-    private router : Router
+    private router : Router,
+    private http: HTTP
   ) { }
 
   ngOnInit() {
@@ -32,6 +38,16 @@ export class RegisterPage implements OnInit {
   }
 
   async signup() {
+    let url = "https://eately-gh.herokuapp.com/signup_user.php";
+
+    let data = {
+      action: 'user_registration',
+      name: this.name,
+      password: this.password,
+      telephone: this.telephone,
+      email: this.email
+    }
+
     if (this.name == "") {
       this.presentToast('Your name field is empty')
     } else if (this.email == "") {
@@ -52,38 +68,36 @@ export class RegisterPage implements OnInit {
       });
       loader.present();
 
-      return new Promise(resolve => {
-        let body = {
-          action: 'user_registration',
-          name: this.name,
-          email: this.email,
-          password: this.password,
-          telephone: this.telephone,
-          confirm_password: this.confirm_password,
+  
 
-        }
-
-        this.accessProvider.postData(body, 'signup_user.php').subscribe((res: any) => {
-            if (res.status == 'success') {
-              loader.dismiss();
-              this.disabledbtn = false;
-              this.presentToast(res.msg);
-              this.router.navigate(['/login']);
-            } else {
-              loader.dismiss();
-              this.disabledbtn = false;
-              this.presentToast(res.msg);
-            }
-          }, (err) => {
-            console.log(err);
-
+      let headers = { };
+      this.http.setDataSerializer("json");
+      this.http.setHeader("*","Accept", "application/json");
+      this.http.setHeader("*","Content-Type", "application/json");
+      return this.http.post(url, data, headers)
+        .then((res: HTTPResponse) => {
+          console.log(`POST ${url} ${JSON.stringify(res.data)}`);
+          let m = JSON.parse(res.data);
+          if (m['status'] == 'success') {
             loader.dismiss();
             this.disabledbtn = false;
-            this.presentAlert(err);
+            this.presentToast(m['msg']);
+            this.router.navigate(['/login']);
+          } else {
+            loader.dismiss();
+            this.disabledbtn = false;
+            this.presentToast(m['msg']);
           }
-        );
-      })
-    }
+        })
+        .catch((error:any) => {
+          console.error(`POST ${url} ${error.error}`);
+          loader.dismiss();
+          this.disabledbtn = false;
+          this.presentAlert(error);
+        });
+
+      }
+
   }
 
   async presentToast(msg) {

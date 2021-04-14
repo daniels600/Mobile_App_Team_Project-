@@ -121,3 +121,29 @@ ion-searchbar {
 ion-toolbar {
   --padding-bottom: 0%;
 }
+
+ion-thumbnail
+{
+  width: 30%;
+  height: 5%;
+  --border-radius:  5%;
+  img
+  {
+    width:auto !important;
+    height:auto !important;
+  }
+}
+
+ion-card {
+  box-shadow: none;
+  width: 80%;
+  margin-top: 0%;
+
+  ion-card-content{
+      width: 100%;
+      //line-height: 0.7;
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 14px;
+  }
+}

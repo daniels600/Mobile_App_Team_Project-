@@ -1,97 +1,41 @@
 <ion-header>
-  <!-- <ion-toolbar color="primary">
-    <div class="bar bar-subheader">
-      <img src="assets/icon/Eately-01.png" alt="logo" class="logo">
-    </div>
-  </ion-toolbar>
   <ion-toolbar>
-    <div class="bar bar-subheader">
-      <ion-searchbar placeholder="Search for Restaurant & Cuisine"></ion-searchbar>
-    </div>
-  </ion-toolbar> -->
-  <ion-list-header lines="full">
-    <ion-label><ion-icon name="logo-instagram" size="large"></ion-icon></ion-label>
-    <img src="assets/icon/Eately-01.png" alt="logo" class="logo">
-    <ion-label>Eately GH</ion-label>
-    <ion-button><ion-icon name="location"></ion-icon></ion-button>
-  </ion-list-header>
-  <ion-toolbar>
-    <div class="bar bar-subheader">
-      <ion-searchbar placeholder="Search for Restaurant & Cuisine"></ion-searchbar>
-    </div>
-  </ion-toolbar>
+    <!-- <ion-avatar>
+      <ion-icon name="person-circle-outline" size="large" ></ion-icon>
+    </ion-avatar> -->
+    <label class="e55_83"><ion-icon name="person-circle-outline" size="large" ></ion-icon></label> 
   
+    <!-- <span class="e55_90"><ion-button slot="start" >Login</ion-button></span>
+    <span class="e57_3" ><ion-button slot="end">Register</ion-button></span> -->
+    <label>{{name}}</label>
+    
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <p class="no-restaurant"> Restaurants are </p>
-  <ion-button color="green" (click)="logout()">
-    <label> Logout</label>
-    <ion-icon name="exit">Logout</ion-icon>
-  </ion-button> -->
-
-
-  <div class="ion-padding wrapper" id="popular">
-    <ion-grid class="ion-no-padding">
-      <ion-row class="ion-align-items-baseline">
-        <ion-col size="6">
-          <h4 class="title">
-            Popular Dishes
-          </h4>
-        </ion-col>
-        <ion-col size="6">
-          <h4 class="more ion-text-end">
-            View more
-          </h4>
-        </ion-col>
-      </ion-row>
-    </ion-grid> 
-  </div>
+  <ion-toolbar>
+    <span><ion-button class="activities">Activites</ion-button> <ion-button class="orders">Orders</ion-button></span>
+  </ion-toolbar>
+  
+  <ion-item>
+  <ion-list>
+  
+  <div class="e92">
+    <button class="button">Table for 4 reserved at la grilla</button>
     
-    <!-- <ion-grid class="ion-no-padding">
-      <ion-row>
-        <ion-col size="12"> -->
+  </div>
+  </ion-list>
 
-        <p class="no-restaurant">Restaurant are </p>
+</ion-item>
+ 
+  </ion-content> 
+  <ion-footer >
+    
 
-        <ion-slides [options]="option">
-            <ion-slide>
-              <ion-card>
-                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
-              </ion-card>
-            </ion-slide>
+    <span><a href="">About US</a> </span>
+    <span><a href="">Contact Us</a></span>
+    <span><a href="">Terms % Conditions</a></span>
+    
+  </ion-footer>
   
-            <ion-slide>
-              <ion-card>
-                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
-              </ion-card>
-            </ion-slide>
-  
-            <ion-slide>
-              <ion-card>
-                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
-              </ion-card>
-            </ion-slide>
-  
-            <ion-slide>
-              <ion-card>
-                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
-              </ion-card>
-            </ion-slide>
-  
-            <ion-slide>
-              <ion-card>
-                <img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
-              </ion-card>
-            </ion-slide>
-  
-          </ion-slides>
-        <!-- </ion-col>
-      </ion-row>
-    </ion-grid> -->
-  
-
-
-
-</ion-content>
 

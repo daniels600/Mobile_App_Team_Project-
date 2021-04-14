@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-label>{{resName}}</ion-label>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+    <div class="v5760">
+      <ion-list *ngFor="let meal of MenuList">
+        <ion-item>
+          <ion-label>{{meal.mealName}}</ion-label>
+          <ion-label>{{meal.mealPrice}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]= "meal.mealImage">
+          </ion-thumbnail>
+      
+          <ion-card class="Rest-details">
+            <ion-card-header>
+              <ion-card-title>{{meal.mealName}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <ion-label>Price</ion-label>
+              {{meal.mealPrice}} 
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  <ion-card>
+    <ion-label>{{resName}}</ion-label>
+  <ion-item >
+    <ion-icon name="location-outline"></ion-icon>
+    <ion-label>location</ion-label>
+    <ion-label>{{resLoc}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="call-outline"></ion-icon>
+    <ion-label>Tel</ion-label>
+    <ion-label>{{phone}}</ion-label>
+  </ion-item>
+
+  <ion-item >
+    <ion-icon name="tablet-landscape-outline"></ion-icon>
+    <ion-label>Find a table</ion-label>
+  </ion-item>
+
+  <ion-item>
+    
+    <ion-label>African restaurant</ion-label>
+  </ion-item>
+</ion-card>
+   
+  
+  <ion-card>
+    <ion-item class="ion-activated">
+      <a href="#" slot="start">Menu Items</a> 
+      <a href="#" slot="end">reviews</a>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>
+

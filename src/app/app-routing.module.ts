@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'activity',
     loadChildren: () => import('./activity/activity.module').then( m => m.ActivityPageModule)
   },
+  {
+    path: 'restaurant/:id/:resname/:resloc/:phone/:email',
+    loadChildren: () => import('./restaurant/restaurant.module').then( m => m.RestaurantPageModule)
+  },
   // {
   //   path: 'main',
   //   loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
