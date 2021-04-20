@@ -14,10 +14,6 @@
     <div class="v5760">
       <ion-list *ngFor="let meal of MenuList">
         <ion-item>
-          <ion-label>{{meal.mealName}}</ion-label>
-          <ion-label>{{meal.mealPrice}}</ion-label>
-        </ion-item>
-        <ion-item>
           <ion-thumbnail slot="start">
             <img [src]= "meal.mealImage">
           </ion-thumbnail>
